@@ -1,212 +1,118 @@
+# Mi Bodeguita — Sistema de Registro Financiero
 
-###  Mi_bodeguita
-Aplicación web para el registro y gestión de asistencia del personal, desarrollada en **PHP puro con arquitectura MVC desde cero**, **Programación Orientada a Objetos (POO)**, **PDO** y **MariaDB** como base de datos.
-
-## 1. Descripción del Negocio
-
-El negocio se llama "MI BODEGUITA  Se trata de un emprendimiento local o comercial que, según sus registros de ingresos, se dedica a la venta de alimentos de primera necesidad.
-
-## 2. Problema y Solución
-
-### Problema Identificado
-Las bodegas y pequeños negocios suelen registrar sus ingresos y gastos de forma manual en cuadernos, hojas de cálculo o incluso de memoria. Esto genera dificultades para controlar el flujo de dinero, conocer las ganancias reales y tomar decisiones oportunas sobre compras, ventas e inversiones.
-Además, cuando el propietario necesita revisar gastos anteriores, identificar quién realizó un registro o verificar movimientos de una fecha específica, el proceso resulta lento y propenso a errores.
----
-# Causas
-Resistencia al cambio: Existe un hábito arraigado de usar el cuaderno físico ("el cuaderno de fiados" o de apuntes) debido a que se percibe como el método más rápido y tradicional.
-
-Brecha digital: Algunos comerciantes sienten desconfianza o falta de familiaridad hacia las herramientas digitales, aplicaciones o sistemas de gestión en la nube.
-
-Percepción de costos: Se suele pensar que implementar un sistema de control financiero requiere una gran inversión en software licencias o equipos informáticos complejos, ignorando que existen soluciones sencillas y accesibles.
-
-
-### Solución Propuesta
-El software "Mi Bodeguita" permite gestionar los movimientos económicos del negocio mediante módulos de ingresos y gastos, donde el usuario puede:
-•	Registrar nuevos ingresos y gastos. 
-•	Visualizar los movimientos registrados. 
-•	Editar información incorrecta. 
-•	Eliminar registros innecesarios. 
-•	Identificar al usuario que realizó cada operación. 
-•	Consultar montos y fechas de cada movimiento.
-
-
-## 3. Preanálisis
-
-### Necesidades Identificadas
-El Problema: Los pequeños comercios suelen registrar sus cuentas manualmente (cuadernos, hojas de cálculo o de memoria). Esto genera descontrol en el flujo de caja, desconocimiento de las ganancias reales y lentitud al auditar movimientos o buscar errores.
-
-Las Causas: Resistencia cultural al cambio (apego al cuaderno físico), brecha digital ante sistemas complejos y la falsa percepción de que el software financiero es costoso.
-
-Necesidades Identificadas: El negocio urge de centralización financiera, agilidad para buscar/editar datos históricos, trazabilidad para saber qué usuario registra cada movimiento y seguridad para restringir el acceso a la información confidencial.
-
-### Estudio de Viabilidad
-
-#### Viabilidad Técnica
-- PHP 8+ disponible en prácticamente cualquier servidor web
-- MariaDB es un gestor gratuito, robusto y ampliamente documentado
-- Apache con `mod_rewrite` disponible en XAMPP para desarrollo local
-- La POO permite estructurar el sistema con clases, herencia y encapsulamiento
-- El patrón MVC está documentado en [`CONCEPTS.md`](./CONCEPTS.md)
-
-#### Viabilidad Económica
-- Stack completamente open source y gratuito (PHP, MariaDB, Apache, Git)
-- Entorno de desarrollo levantable localmente con XAMPP sin costo
-- No se requieren licencias de software adicionales
-
-#### Viabilidad Operacional
-- Los usuarios solo necesitan un navegador web para acceder
-- Administrable de forma remota una vez desplegado
-- La separación en módulos facilita la capacitación del personal
-
-### Alcance del Sistema
-
-#### Dentro del alcance
-- Autenticación con sesiones PHP y roles (administrador / empleado)
-- Módulo de empleados: CRUD completo
-- Módulo de departamentos: gestión de áreas
-- Módulo de asistencia: registro de entrada/salida e historial
-- Dashboard con resumen de asistencias del día
-- Layouts reutilizables (header, footer, navbar) — principio DRY
-
-#### Fuera del alcance
-- Integración con dispositivos biométricos
-- Módulo de nómina o cálculo de salarios
-- Aplicación móvil nativa (iOS / Android)
-- Notificaciones por correo o SMS
-- Integración con sistemas ERP externos
+Sistema web MVC desarrollado en PHP puro que permite al administrador de una bodega registrar, consultar y gestionar sus ingresos y gastos mensuales desde un panel privado.
 
 ---
 
-## 4. Análisis de Requisitos
+## Tecnologías utilizadas
 
-### 4.1 Requisitos Funcionales
-•	RF-01 (Autenticación): El sistema debe permitir el inicio de sesión de usuarios autorizados.
-•	RF-02 (Cierre de Sesión): El sistema debe incluir un botón funcional en el menú lateral para finalizar la sesión activa de forma segura.
-•	RF-03 (Vista de Bienvenida): El sistema debe mostrar una pantalla principal de bienvenida personalizada con el nombre del usuario que ha iniciado sesión.
-### 4.2 Requisitos No Funcionales
+- PHP 8+ (sin frameworks)
+- MySQL
+- Bootstrap 5
+- Font Awesome 6
+- Poppins (Google Fonts)
+- Arquitectura MVC propia
 
-•	RNF-01 (Diseño Responsivo): La interfaz gráfica debe adaptarse correctamente a pantallas de laptops y computadoras de escritorio.
-•	RNF-02 (Estética Limpia): El sistema debe contar con un diseño minimalista, tipografías legibles y contrastes de color suaves (fondos claros, botones de acción definidos como verde para guardar y azul/rojo para editar/eliminar) para evitar la fatiga visual del usuario.
-
-## Stack Tecnológico
-
-| Capa | Tecnología |
-|---|---|
-| **Backend** | PHP 8+ — POO (Programación Orientada a Objetos) — MVC desde cero |
-| **Base de datos** | MariaDB — PDO (PHP Data Objects) con prepared statements |
-| **Frontend** | HTML5, CSS3, JavaScript — Vistas PHP con layouts reutilizables |
-| **Servidor web** | Apache — Reescritura de URLs vía `.htaccess` |
-| **Control de versiones** | Git + GitHub |
-| **Configuración** | Variables de entorno (`.env`) para credenciales |
 ---
 
-## Arquitectura del Proyecto
+## Instalación
 
-El sistema aplica **POO** y **MVC** implementado desde cero. Los 4 pilares de POO en el proyecto:
+1. Clona o descomprime el proyecto dentro de tu servidor local (por ejemplo `htdocs/` en XAMPP).
+2. Crea la base de datos ejecutando el archivo `basedatos.sql` en tu gestor MySQL.
+3. Copia `.env.example` como `.env` y completa tus datos de conexión:
 
+```
+DB_HOST=localhost
+DB_PORT=3306
+DB_DATABASE=mi_bodeguita
+DB_USERNAME=root
+DB_PASSWORD=
+APP_URL=http://localhost/mi-bodeguita
+```
 
-### Requisitos previos
-- PHP 8+
-- Servidor web local o hosting
-- MariaDB / MySQL
-  ---
-## TRELLO
-<img width="1019" height="588" alt="image" src="https://github.com/user-attachments/assets/4cff974e-35b7-4bc4-8606-68c34ff4a6c5" />
+4. Asegúrate de que el módulo `mod_rewrite` esté activo en Apache (el `.htaccess` lo requiere).
+5. Accede desde el navegador a la URL configurada en `APP_URL`.
+
 ---
-### DIAGRAMA DE FIGMA UI/UX
 
-##FIGMA UI
-<img width="1340" height="331" alt="image" src="https://github.com/user-attachments/assets/61492134-9d78-4cdf-8b86-6d75e1ba163a" />
-### Pasos
+## Estructura del proyecto
 
-```bash
-# 1. Clonar el repositorio
-git clone https://github.com/Mi_bodeguita
-
-# 2. Configurar variables de entorno
-cp .env.example .env
-# Editar .env con tus credenciales de base de datos
-
-# 3. Crear la base de datos
-
-## Base de datos
-```sql
-CREATE DATABASE mi_bodeguita;
-USE mi_bodeguita;
-
-CREATE TABLE usuario (
-  id_usuario INT AUTO_INCREMENT PRIMARY KEY,
-  nombre_usuario VARCHAR(120) NOT NULL UNIQUE,
-  clave VARCHAR(255) NOT NULL,
-  rol ENUM('admin') NOT NULL DEFAULT 'admin'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
-CREATE TABLE ingreso (
-  id_ingreso INT AUTO_INCREMENT PRIMARY KEY,
-  concepto VARCHAR(150) NOT NULL,
-  descripcion TEXT,
-  monto DECIMAL(10,2) NOT NULL,
-  fecha DATE NOT NULL,
-  id_usuario INT NOT NULL,
-  FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
-CREATE TABLE gasto (
-  id_gasto INT AUTO_INCREMENT PRIMARY KEY,
-  concepto VARCHAR(150) NOT NULL,
-  descripcion TEXT,
-  monto DECIMAL(10,2) NOT NULL,
-  fecha DATE NOT NULL,
-  id_usuario INT NOT NULL,
-  FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
-INSERT INTO usuario (nombre_usuario, clave, rol) VALUES
-('Jhojan', '123456', 'admin'),
-
-INSERT INTO ingreso (concepto, descripcion, monto, fecha, id_usuario) VALUES
-('Venta de abarrotes', 'Ingreso por ventas del turno mañana', 350.00, '2026-05-02', 1),
-('Venta de bebidas', 'Ingreso por bebidas y snacks', 180.50, '2026-05-05', 2),
-('Recarga virtual', 'Comisión por recargas telefónicas', 95.00, '2026-05-08', 3),
-('Venta de productos de limpieza', 'Ingreso por productos del hogar', 240.00, '2026-05-14', 4),
-('Venta fin de semana', 'Ingreso acumulado del sábado', 420.75, '2026-05-18', 5);
-
-INSERT INTO gasto (concepto, descripcion, monto, fecha, id_usuario) VALUES
-('Compra de mercadería', 'Reposición de abarrotes y bebidas', 210.00, '2026-05-03', 1),
-('Pago de luz', 'Servicio eléctrico del local', 85.50, '2026-05-06', 2),
-('Compra de bolsas', 'Bolsas para atención al cliente', 25.00, '2026-05-09', 3),
-('Pago de internet', 'Servicio mensual de internet', 79.90, '2026-05-12', 4),
-('Compra de limpieza', 'Productos de limpieza para la tienda', 48.30, '2026-05-19', 5);
-
-
-### Diagrama Entidad-Relacion (DER)
-Falta integrar
-
- 
-### Modelo Relacional (MR)
-![MODELO_RELACIONAL](https://raw.githubusercontent.com/ojitoslanda/testing/refs/heads/master/img/db.png)
-
-### Cardinalidades
-
-Las cardinalidades describen cuántos registros de una tabla se relacionan con cuántos de otra.
-
-**cargo → empleado (1:N)**
-Un cargo puede estar asignado a muchos empleados.
-Un empleado solo puede tener un cargo.
 ```
-cargo (1) -----< empleado (N)
+mi-bodeguita/
+├── app/
+│   ├── config/         # Configuración de BD y constantes
+│   ├── controllers/    # Lógica de cada módulo
+│   ├── core/           # Router, App, Controller base, Database
+│   ├── models/         # Acceso a la base de datos
+│   └── views/          # Vistas HTML/PHP por módulo
+├── public/
+│   ├── css/            # Estilos del dashboard y landing
+│   ├── js/             # Scripts del dashboard y landing
+│   └── image/          # Imágenes y SVGs
+├── .env
+├── .htaccess
+└── basedatos.sql
 ```
 
-**empleado → asistencia (1:N)**
-Un empleado puede tener muchos registros de asistencia (uno por día).
-Cada registro de asistencia pertenece a un solo empleado.
-```
-empleado (1) -----< asistencia (N)
-```
+---
 
-**usuario**
-La tabla usuario es independiente. No se relaciona con empleado ni con asistencia.
-Representa las cuentas de acceso al sistema (administradores), no a los empleados.
+## Funcionalidades
 
+### Landing pública (`/`)
+Página de presentación del sistema con fondo animado. Incluye un menú hamburguesa que abre un panel con el acceso directo al login.
 
+### Login (`/login`)
+Formulario de acceso para el administrador. Valida usuario y contraseña contra la tabla `usuario`. Si las credenciales son correctas, inicia sesión y redirige al dashboard. En caso contrario muestra un mensaje de error.
 
+### Dashboard (`/dashboard`)
+Panel principal protegido por sesión. Muestra los últimos 5 ingresos y los últimos 5 gastos registrados en dos tablas con acceso rápido a cada módulo completo.
+
+### Ingresos (`/ingresos`)
+Lista todos los ingresos registrados ordenados por fecha descendente. Desde aquí el administrador puede registrar un nuevo ingreso, editar uno existente o eliminarlo.
+
+### Gastos (`/gastos`)
+Lista todos los gastos registrados ordenados por fecha descendente. Igual que ingresos, permite registrar, editar y eliminar.
+
+### Resumen (`/resumen`)
+Consulta financiera por mes. Permite seleccionar un mes y ver el total de ingresos, total de gastos y la ganancia neta del período.
+
+### Logout (`/logout`)
+Destruye la sesión activa y redirige al login.
+
+---
+
+## Usuarios de prueba
+
+Los siguientes usuarios vienen precargados en `basedatos.sql`:
+
+| Usuario | Contraseña |
+|---------|-----------|
+| Jhojan  | 123456    |
+| Daniel  | 123456    |
+| Gabriel | 123456    |
+| Luka    | 123456    |
+| Sandra  | 123456    |
+
+---
+
+## Rutas disponibles
+
+| Ruta | Descripción |
+|------|-------------|
+| `/` | Landing pública |
+| `/login` | Formulario de acceso |
+| `/logout` | Cerrar sesión |
+| `/dashboard` | Panel principal |
+| `/ingresos` | Lista de ingresos |
+| `/ingresos/registro` | Formulario nuevo ingreso |
+| `/ingresos/editar?id=X` | Formulario editar ingreso |
+| `/ingresos/guardar` | Guardar nuevo ingreso (POST) |
+| `/ingresos/actualizar` | Actualizar ingreso (POST) |
+| `/ingresos/eliminar` | Eliminar ingreso (POST) |
+| `/gastos` | Lista de gastos |
+| `/gastos/registro` | Formulario nuevo gasto |
+| `/gastos/editar?id=X` | Formulario editar gasto |
+| `/gastos/guardar` | Guardar nuevo gasto (POST) |
+| `/gastos/actualizar` | Actualizar gasto (POST) |
+| `/gastos/eliminar` | Eliminar gasto (POST) |
+| `/resumen` | Consulta de ganancia por mes |
