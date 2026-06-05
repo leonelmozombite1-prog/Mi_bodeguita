@@ -115,7 +115,7 @@ El sistema aplica **POO** y **MVC** implementado desde cero. Los 4 pilares de PO
 ---
 ### DIAGRAMA DE FIGMA UI/UX
 
-##FIGMA UX 
+##FIGMA UI
 <img width="1340" height="331" alt="image" src="https://github.com/user-attachments/assets/61492134-9d78-4cdf-8b86-6d75e1ba163a" />
 ### Pasos
 
