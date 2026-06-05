@@ -1,0 +1,416 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    --bg: #f7f4ea;
+    --paper: #fffdf7;
+    --ink: #24352a;
+    --muted: #6b7280;
+    --line: #d9d2be;
+    --green: #14532d;
+    --green-soft: #dcfce7;
+    --red: #b91c1c;
+    --red-soft: #fee2e2;
+    --gold: #b45309;
+    --sidebar-w: 260px;
+    --topbar-h: 62px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background:
+        repeating-linear-gradient(0deg, #f7f4ea, #f7f4ea 34px, #ece5d2 35px),
+        linear-gradient(180deg, rgba(20, 83, 45, 0.04), rgba(0,0,0,0));
+    color: var(--ink);
+}
+
+.topbar {
+    height: var(--topbar-h);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0 1rem;
+    border-bottom: 1px solid var(--line);
+    position: fixed;
+    inset: 0 0 auto 0;
+    background: rgba(255, 253, 247, 0.92);
+    backdrop-filter: blur(10px);
+    z-index: 40;
+}
+
+.hamburger {
+    border: 0;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    width: 42px;
+    height: 42px;
+    color: var(--ink);
+}
+
+.topbar-title {
+    font-weight: 700;
+    letter-spacing: 0.04em;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(17, 24, 39, 0.35);
+    z-index: 45;
+}
+
+.overlay.show { display: block; }
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: var(--sidebar-w);
+    height: 100vh;
+    background: #183525;
+    color: #ecfdf5;
+    padding: 1.4rem 1rem;
+    z-index: 50;
+    transition: left 0.25s ease;
+}
+
+.sidebar.open { left: 0; }
+
+.brand-box {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    padding-bottom: 1.2rem;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+    margin-bottom: 1.2rem;
+}
+
+.brand-mark {
+    width: 46px;
+    height: 46px;
+    border-radius: 14px;
+    display: grid;
+    place-items: center;
+    background: rgba(255,255,255,0.12);
+    font-weight: 800;
+}
+
+.brand-box small {
+    display: block;
+    color: rgba(236,253,245,0.72);
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+}
+
+.sidebar-nav a {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: rgba(236,253,245,0.82);
+    text-decoration: none;
+    padding: 0.9rem 1rem;
+    border-radius: 16px;
+    transition: 0.2s ease;
+}
+
+.sidebar-nav a:hover,
+.sidebar-nav a.activo {
+    background: rgba(255,255,255,0.12);
+    color: #fff;
+}
+
+.welcome-panel {
+    min-height: calc(100vh - 120px);
+    display: grid;
+    place-items: center;
+    text-align: center;
+    background: rgba(255,253,247,0.96);
+    border: 1px solid var(--line);
+    border-radius: 26px;
+    box-shadow: 0 14px 34px rgba(36, 53, 42, 0.06);
+}
+
+.welcome-panel h1 {
+    margin: 0;
+    font-size: clamp(2.2rem, 5vw, 4.4rem);
+    color: var(--ink);
+}
+
+.logout-link {
+    margin-top: 1rem;
+}
+
+main {
+    margin-top: var(--topbar-h);
+    padding: 1rem;
+}
+
+.ledger-hero,
+.ledger-panel,
+.balance-card {
+    background: rgba(255,253,247,0.96);
+    border: 1px solid var(--line);
+    box-shadow: 0 14px 34px rgba(36, 53, 42, 0.06);
+}
+
+.ledger-hero {
+    border-radius: 26px;
+    padding: 1.6rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.mini-tag,
+.panel-tag {
+    color: var(--gold);
+    font-size: 0.76rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.ledger-hero h1 {
+    margin: 0.3rem 0;
+    font-size: clamp(1.8rem, 4vw, 3.1rem);
+    line-height: 1;
+}
+
+.hero-note {
+    max-width: 680px;
+    color: var(--muted);
+    margin-bottom: 0;
+}
+
+.month-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.9rem 1rem;
+    border-radius: 999px;
+    background: #ecfdf5;
+    color: var(--green);
+    font-weight: 700;
+}
+
+.balance-strip {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.balance-strip.single {
+    margin-bottom: 0;
+}
+
+.balance-card {
+    border-radius: 22px;
+    padding: 1.2rem 1.3rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.balance-card::after {
+    content: '';
+    position: absolute;
+    inset: auto 0 0 0;
+    height: 6px;
+}
+
+.balance-card.income::after { background: #16a34a; }
+.balance-card.expense::after { background: #dc2626; }
+.balance-card.profit::after { background: #ca8a04; }
+
+.balance-card small {
+    color: var(--muted);
+}
+
+.balance-card h2 {
+    margin: 0.4rem 0 0;
+    font-size: clamp(1.6rem, 3vw, 2.5rem);
+}
+
+.grid-ledger {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.ledger-panel {
+    border-radius: 26px;
+    padding: 1.2rem;
+}
+
+.ledger-panel.full {
+    padding: 1.4rem;
+}
+
+.panel-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.panel-head h3 {
+    margin: 0.2rem 0 0;
+}
+
+.panel-head a {
+    color: var(--green);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.form-control {
+    border-radius: 12px;
+    border: 1px solid var(--line);
+    padding: 0.85rem 1rem;
+    background: #fffef9;
+}
+
+.form-control:focus {
+    border-color: #15803d;
+    box-shadow: 0 0 0 0.25rem rgba(21, 128, 61, 0.12);
+}
+
+.btn-dark {
+    border: 0;
+    background: #24352a;
+}
+
+.table { --bs-table-bg: transparent; }
+
+.table thead th {
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+    color: #5b665f;
+}
+
+.money-plus {
+    color: var(--green);
+    font-weight: 700;
+}
+
+.money-minus {
+    color: var(--red);
+    font-weight: 700;
+}
+
+@media (min-width: 992px) {
+    .topbar { display: none; }
+    .overlay { display: none !important; }
+    .sidebar { left: 0; }
+    main {
+        margin-top: 0;
+        margin-left: var(--sidebar-w);
+        padding: 1.8rem;
+    }
+}
+
+@media (max-width: 991px) {
+    .balance-strip,
+    .grid-ledger {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ─── WELCOME PANEL ─────────────────────────────── */
+.welcome-panel {
+    margin-bottom: 1.5rem;
+}
+.welcome-panel h1 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 0.2rem;
+}
+
+/* ─── BALANCE STRIP (tarjetas resumen) ───────────── */
+.balance-strip {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.balance-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 1.2rem 1.4rem;
+}
+
+.balance-card small {
+    display: block;
+    font-size: 0.78rem;
+    color: var(--muted);
+    margin-bottom: 0.4rem;
+}
+
+.balance-card h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.balance-card.income h2  { color: var(--green); }
+.balance-card.expense h2 { color: var(--red); }
+.balance-card.profit h2  { color: var(--gold); }
+
+/* ─── LEDGER PANEL (tablas) ──────────────────────── */
+.ledger-panel {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 1.4rem;
+    margin-bottom: 1.5rem;
+}
+
+.ledger-panel.full { width: 100%; }
+
+.panel-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.panel-head h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.panel-tag {
+    font-size: 0.72rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0 0 2px;
+}
+
+.btn-ver-todos {
+    font-size: 0.8rem;
+    color: var(--green);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.btn-ver-todos:hover { text-decoration: underline; }
+
+.money-plus { color: var(--green); font-weight: 600; }
+.money-minus { color: var(--red);   font-weight: 600; }
