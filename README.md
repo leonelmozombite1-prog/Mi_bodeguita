@@ -109,7 +109,14 @@ El sistema aplica **POO** y **MVC** implementado desde cero. Los 4 pilares de PO
 - PHP 8+
 - Servidor web local o hosting
 - MariaDB / MySQL
+  ---
+## TRELLO
+<img width="1019" height="588" alt="image" src="https://github.com/user-attachments/assets/4cff974e-35b7-4bc4-8606-68c34ff4a6c5" />
+---
+### DIAGRAMA DE FIGMA UI/UX
 
+##FIGMA UX 
+<img width="1340" height="331" alt="image" src="https://github.com/user-attachments/assets/61492134-9d78-4cdf-8b86-6d75e1ba163a" />
 ### Pasos
 
 ```bash
@@ -121,16 +128,6 @@ cp .env.example .env
 # Editar .env con tus credenciales de base de datos
 
 # 3. Crear la base de datos
-
-## TRELLO
-<img width="1019" height="588" alt="image" src="https://github.com/user-attachments/assets/4cff974e-35b7-4bc4-8606-68c34ff4a6c5" />
-
-
-### DIAGRAMA DE FIGMA UI/UX
-
-##FIGMA UX 
-<img width="1340" height="331" alt="image" src="https://github.com/user-attachments/assets/61492134-9d78-4cdf-8b86-6d75e1ba163a" />
-
 
 ## Base de datos
 ```sql
