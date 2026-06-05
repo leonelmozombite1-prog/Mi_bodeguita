@@ -11,9 +11,8 @@ El negocio se llama "MI BODEGUITA  Se trata de un emprendimiento local o comerci
 ### Problema Identificado
 Las bodegas y pequeños negocios suelen registrar sus ingresos y gastos de forma manual en cuadernos, hojas de cálculo o incluso de memoria. Esto genera dificultades para controlar el flujo de dinero, conocer las ganancias reales y tomar decisiones oportunas sobre compras, ventas e inversiones.
 Además, cuando el propietario necesita revisar gastos anteriores, identificar quién realizó un registro o verificar movimientos de una fecha específica, el proceso resulta lento y propenso a errores.
-
-
-### Causas
+---
+# Causas
 Resistencia al cambio: Existe un hábito arraigado de usar el cuaderno físico ("el cuaderno de fiados" o de apuntes) debido a que se percibe como el método más rápido y tradicional.
 
 Brecha digital: Algunos comerciantes sienten desconfianza o falta de familiaridad hacia las herramientas digitales, aplicaciones o sistemas de gestión en la nube.
