@@ -1,55 +1,44 @@
-# Mi_bodeguita
-# Sistema de Control de Asistencia de Empleados
-### Employee Attendance System
+
+###  Mi_bodeguita
 Aplicación web para el registro y gestión de asistencia del personal, desarrollada en **PHP puro con arquitectura MVC desde cero**, **Programación Orientada a Objetos (POO)**, **PDO** y **MariaDB** como base de datos.
 
 ## 1. Descripción del Negocio
 
-Las organizaciones modernas necesitan gestionar la asistencia de su personal de forma precisa y centralizada (Solo de un turno). Este sistema reemplaza los registros manuales en papel o planillas físicas, eliminando problemas como:
-
-- Registros incompletos o manipulados
-- Alto costo administrativo por procesar asistencias manualmente
-- Imposibilidad de generar reportes históricos de forma automática
-- Falta de trazabilidad y auditoría sobre las marcaciones
-- Dependencia de personal para consolidar información
+El negocio se llama "MI BODEGUITA  Se trata de un emprendimiento local o comercial que, según sus registros de ingresos, se dedica a la venta de alimentos de primera necesidad.
 
 ## 2. Problema y Solución
 
 ### Problema Identificado
-Las empresas carecen de un sistema digital accesible para registrar, monitorear y gestionar la asistencia de sus empleados. El control manual genera imprecisiones, pérdidas de información y dificulta la toma de decisiones basadas en datos confiables.
+Las bodegas y pequeños negocios suelen registrar sus ingresos y gastos de forma manual en cuadernos, hojas de cálculo o incluso de memoria. Esto genera dificultades para controlar el flujo de dinero, conocer las ganancias reales y tomar decisiones oportunas sobre compras, ventas e inversiones.
+Además, cuando el propietario necesita revisar gastos anteriores, identificar quién realizó un registro o verificar movimientos de una fecha específica, el proceso resulta lento y propenso a errores.
+
 
 ### Causas
-- Ausencia de una herramienta digital centralizada para marcar asistencia
-- Los registros en papel se pierden, deterioran o se alteran fácilmente
-- No existe diferenciación de roles entre quién administra y quién solo consulta
-- Es imposible generar reportes históricos de forma automática
+Resistencia al cambio: Existe un hábito arraigado de usar el cuaderno físico ("el cuaderno de fiados" o de apuntes) debido a que se percibe como el método más rápido y tradicional.
 
-### Efectos
-- Pérdida económica por pago incorrecto de horas trabajadas
-- Incapacidad de detectar patrones de ausentismo a tiempo
-- Mayor carga operativa para el área de Recursos Humanos
+Brecha digital: Algunos comerciantes sienten desconfianza o falta de familiaridad hacia las herramientas digitales, aplicaciones o sistemas de gestión en la nube.
+
+Percepción de costos: Se suele pensar que implementar un sistema de control financiero requiere una gran inversión en software licencias o equipos informáticos complejos, ignorando que existen soluciones sencillas y accesibles.
+
 
 ### Solución Propuesta
+El software "Mi Bodeguita" permite gestionar los movimientos económicos del negocio mediante módulos de ingresos y gastos, donde el usuario puede:
+•	Registrar nuevos ingresos y gastos. 
+•	Visualizar los movimientos registrados. 
+•	Editar información incorrecta. 
+•	Eliminar registros innecesarios. 
+•	Identificar al usuario que realizó cada operación. 
+•	Consultar montos y fechas de cada movimiento.
 
-Desarrollar una aplicación web con **PHP + POO + MVC** que permita:
 
-- Autenticar usuarios con roles diferenciados (administrador / empleado)
-- Registrar asistencia con fecha y hora exactas usando PDO y MariaDB
-- Gestionar el catálogo de empleados y departamentos (CRUD completo)
-- Consultar y filtrar el historial de asistencias por empleado y fecha
-- Visualizar un dashboard con el estado de asistencia del día en curso
-- 
 ## 3. Preanálisis
 
 ### Necesidades Identificadas
+El Problema: Los pequeños comercios suelen registrar sus cuentas manualmente (cuadernos, hojas de cálculo o de memoria). Esto genera descontrol en el flujo de caja, desconocimiento de las ganancias reales y lentitud al auditar movimientos o buscar errores.
 
-1. Registrar quién entra y sale, con fecha y hora exacta
-2. Panel de control con el estado de asistencia del día
-3. Administrar el catálogo de empleados (crear, editar, eliminar)
-4. Organizar empleados por departamentos
-5. Consultar historial de asistencias filtrado por empleado y período
-6. Autenticar usuarios para proteger la información del sistema
-7. Diferenciar permisos entre administrador y empleado
+Las Causas: Resistencia cultural al cambio (apego al cuaderno físico), brecha digital ante sistemas complejos y la falsa percepción de que el software financiero es costoso.
+
+Necesidades Identificadas: El negocio urge de centralización financiera, agilidad para buscar/editar datos históricos, trazabilidad para saber qué usuario registra cada movimiento y seguridad para restringir el acceso a la información confidencial.
 
 ### Estudio de Viabilidad
 
@@ -111,12 +100,6 @@ Falta
 
 El sistema aplica **POO** y **MVC** implementado desde cero. Los 4 pilares de POO en el proyecto:
 
-### Flujo de una Petición
-
-
-### Estructura del Proyecto
-
-## Instalación
 
 ### Requisitos previos
 - PHP 8+
@@ -127,8 +110,7 @@ El sistema aplica **POO** y **MVC** implementado desde cero. Los 4 pilares de PO
 
 ```bash
 # 1. Clonar el repositorio
-git clone https://github.com/ojitoslanda/employee-attendance-system.git
-cd employee-attendance-system
+git clone https://github.com/Mi_bodeguita
 
 # 2. Configurar variables de entorno
 cp .env.example .env
@@ -136,56 +118,65 @@ cp .env.example .env
 
 # 3. Crear la base de datos
 
-
-# 4. Apuntar el servidor web a la carpeta public/
-
-```
-
 ## TRELLO
-Falta integrar
+<img width="997" height="549" alt="image" src="https://github.com/user-attachments/assets/7ec1c5a9-ce4b-415d-9f47-879369839377" />
+
 
 ### DIAGRAMA DE FIGMA UI/UX
 
+##FIGMA UX 
+<img width="1340" height="331" alt="image" src="https://github.com/user-attachments/assets/61492134-9d78-4cdf-8b86-6d75e1ba163a" />
+
+
 ## Base de datos
 ```sql
-create database senai_asistencia;
-use senai_asistencia;
+CREATE DATABASE mi_bodeguita;
+USE mi_bodeguita;
 
+CREATE TABLE usuario (
+  id_usuario INT AUTO_INCREMENT PRIMARY KEY,
+  nombre_usuario VARCHAR(120) NOT NULL UNIQUE,
+  clave VARCHAR(255) NOT NULL,
+  rol ENUM('admin') NOT NULL DEFAULT 'admin'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-create table cargo (
-id_cargo int auto_increment primary key,
-nombre_cargo varchar(50) not null
-)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+CREATE TABLE ingreso (
+  id_ingreso INT AUTO_INCREMENT PRIMARY KEY,
+  concepto VARCHAR(150) NOT NULL,
+  descripcion TEXT,
+  monto DECIMAL(10,2) NOT NULL,
+  fecha DATE NOT NULL,
+  id_usuario INT NOT NULL,
+  FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-create table empleado(
-id_empleado int primary key auto_increment,
-nombre varchar(100) not null,
-apellido varchar(100) not null,
-dni varchar(8) unique not null,
-celular varchar(20),
-correo varchar (100) not null unique,
-id_cargo int not null,
-fecha_registro timestamp default current_timestamp,
-foreign key (id_cargo) references cargo(id_cargo)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+CREATE TABLE gasto (
+  id_gasto INT AUTO_INCREMENT PRIMARY KEY,
+  concepto VARCHAR(150) NOT NULL,
+  descripcion TEXT,
+  monto DECIMAL(10,2) NOT NULL,
+  fecha DATE NOT NULL,
+  id_usuario INT NOT NULL,
+  FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-create table usuario(
-id_usuario int auto_increment primary key,
-roles enum('admin', 'superadmin') default 'admin',
-nombre_usuario varchar (150) not null,
-clave varchar(250) not null
-)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+INSERT INTO usuario (nombre_usuario, clave, rol) VALUES
+('Jhojan', '123456', 'admin'),
 
-create table asistencia(
-id_asistencia int auto_increment primary key,
-fecha date not null,
-hora_entrada timestamp default current_timestamp not null,
-hora_salida timestamp default current_timestamp not null,
-estado enum('asistio', 'tardanza', 'falto') default 'falto' not null,
-id_empleado int not null,
-foreign key (id_empleado) references empleado(id_empleado) ON DELETE CASCADE
-)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-```
+INSERT INTO ingreso (concepto, descripcion, monto, fecha, id_usuario) VALUES
+('Venta de abarrotes', 'Ingreso por ventas del turno mañana', 350.00, '2026-05-02', 1),
+('Venta de bebidas', 'Ingreso por bebidas y snacks', 180.50, '2026-05-05', 2),
+('Recarga virtual', 'Comisión por recargas telefónicas', 95.00, '2026-05-08', 3),
+('Venta de productos de limpieza', 'Ingreso por productos del hogar', 240.00, '2026-05-14', 4),
+('Venta fin de semana', 'Ingreso acumulado del sábado', 420.75, '2026-05-18', 5);
+
+INSERT INTO gasto (concepto, descripcion, monto, fecha, id_usuario) VALUES
+('Compra de mercadería', 'Reposición de abarrotes y bebidas', 210.00, '2026-05-03', 1),
+('Pago de luz', 'Servicio eléctrico del local', 85.50, '2026-05-06', 2),
+('Compra de bolsas', 'Bolsas para atención al cliente', 25.00, '2026-05-09', 3),
+('Pago de internet', 'Servicio mensual de internet', 79.90, '2026-05-12', 4),
+('Compra de limpieza', 'Productos de limpieza para la tienda', 48.30, '2026-05-19', 5);
+
 
 ### Diagrama Entidad-Relacion (DER)
 Falta integrar
