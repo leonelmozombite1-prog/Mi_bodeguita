@@ -80,9 +80,14 @@ Necesidades Identificadas: El negocio urge de centralización financiera, agilid
 ## 4. Análisis de Requisitos
 
 ### 4.1 Requisitos Funcionales
-Falta
+•	RF-01 (Autenticación): El sistema debe permitir el inicio de sesión de usuarios autorizados.
+•	RF-02 (Cierre de Sesión): El sistema debe incluir un botón funcional en el menú lateral para finalizar la sesión activa de forma segura.
+•	RF-03 (Vista de Bienvenida): El sistema debe mostrar una pantalla principal de bienvenida personalizada con el nombre del usuario que ha iniciado sesión.
 ### 4.2 Requisitos No Funcionales
-Falta
+
+•	RNF-01 (Diseño Responsivo): La interfaz gráfica debe adaptarse correctamente a pantallas de laptops y computadoras de escritorio.
+•	RNF-02 (Estética Limpia): El sistema debe contar con un diseño minimalista, tipografías legibles y contrastes de color suaves (fondos claros, botones de acción definidos como verde para guardar y azul/rojo para editar/eliminar) para evitar la fatiga visual del usuario.
+
 ## Stack Tecnológico
 
 | Capa | Tecnología |
@@ -118,7 +123,7 @@ cp .env.example .env
 # 3. Crear la base de datos
 
 ## TRELLO
-<img width="997" height="549" alt="image" src="https://github.com/user-attachments/assets/7ec1c5a9-ce4b-415d-9f47-879369839377" />
+<img width="1019" height="588" alt="image" src="https://github.com/user-attachments/assets/4cff974e-35b7-4bc4-8606-68c34ff4a6c5" />
 
 
 ### DIAGRAMA DE FIGMA UI/UX
